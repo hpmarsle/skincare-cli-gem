@@ -1,0 +1,20 @@
+skin concern
+#logo-area > div:nth-child(2) > nav > ul > li:nth-child(3) > a
+#logo-area > div:nth-child(2) > nav > ul > li:nth-child(3) > ul > li:nth-child(12) > a
+#collection-title
+
+dry label selector
+#filter-items > div:nth-child(1) > ul > li:nth-child(1) > label
+#filter-items > div:nth-child(1) > ul > li:nth-child(2) > label
+#filter-items > div:nth-child(1) > ul > li:nth-child(4) > label
+sensitive
+#filter-items > div:nth-child(1) > ul > li:nth-child(5) > label
+
+try below 
+#filter-items > div:nth-child(1) > ul > li label
+#filter-items > div:nth-child(1) > ul > li > label
+
+store url in var
+url = "https://www.peachandlily.com/collections/"
+concern = scraped text
+"#{url}#{concern}"
