@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-Skincare::CLI.new.call
+require './lib/skincare_cli_gem'
+
+SkincareCliGem::CLI.new.call
