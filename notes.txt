@@ -1,4 +1,5 @@
 What is a concern?
+ -has a name
  -has an about
  -has products
 skin concern
