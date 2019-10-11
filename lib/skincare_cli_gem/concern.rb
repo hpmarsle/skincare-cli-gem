@@ -1,13 +1,15 @@
+require "pry"
 class SkincareCliGem::SkinConcern
-    attr_accessor
+    attr_accessor :name, :summary, :products, :url
+    @@all = []
+
+    def initialize(name)
+        @name = name
+        @@all << self 
+        @products = []
+    end
 
     def self.all
-       #should return all skincare conccerns 
-       puts <<~DOC 
-            1. Acne
-            2. Anti-aging
-            3. Dryness
-            4. Sensitive Skin
-        DOC
+        @@all
     end
 end

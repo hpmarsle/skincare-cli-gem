@@ -1,5 +1,9 @@
+require "open-uri"
+require "nokogiri"
+
 require_relative "./skincare_cli_gem/version"
 require_relative "./skincare_cli_gem/cli"
+require_relative "./skincare_cli_gem/concern"
 
 
 # require_relative './'

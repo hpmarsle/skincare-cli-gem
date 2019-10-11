@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/skincare_cli_gem'
-
+require "bundler/setup"
+require "skincare_cli_gem"
+require "pry"
 SkincareCliGem::CLI.new.call

@@ -1,15 +1,13 @@
 class SkincareCliGem::CLI
     
     def call
-        puts "Welcome to your skincare curations."
-        puts "-"*40
         list_skin_concerns
         menu
-        goodbye
     end
 
     def list_skin_concerns
-        #here doc
+        puts "Welcome to your skincare collections."
+        puts "-"*40
         puts <<~DOC 
             1. Acne
             2. Anti-aging
@@ -25,17 +23,13 @@ class SkincareCliGem::CLI
         while input != "exit"
             puts "Please type the corresponding number to your skin concern, type list for the options, or type exit to leave:"
             input = gets.strip.downcase
-            case input 
-            when "1"
-                puts "info on acne"
-            when "2"
-                puts "info on antiaging"
-            when "3"
-                puts "info on dryness"
-            when "4"
-                puts "info on sensitive skin"
-            when "list"
+            
+            if input.to_i > 0 && input.to_i <= 4
+                puts @concerns[input.to_i-1]
+            elsif input == "list"
                 list_skin_concerns
+            elsif input == "exit"
+                goodbye
             else 
                 puts "Please enter a valid option"
             end
