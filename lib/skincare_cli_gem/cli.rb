@@ -16,6 +16,7 @@ class SkincareCliGem::CLI
             3. Dryness
             4. Sensitive Skin
         DOC
+        @concerns = SkincareCliGem::SkinConcern.all
     end
 
     def menu 
@@ -35,6 +36,8 @@ class SkincareCliGem::CLI
                 puts "info on sensitive skin"
             when "list"
                 list_skin_concerns
+            else 
+                puts "Please enter a valid option"
             end
         end
     end 
