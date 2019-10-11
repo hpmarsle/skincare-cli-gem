@@ -1,15 +1,22 @@
 class SkincareCliGem::CLI
     
+    def initialize
+      puts "Welcome to your skincare collections."
+      puts "-"*40
+      
+      @concern = SkincareCliGem::Scraper.new
+    end 
+    
     def call
+
         list_skin_concerns
         menu
     end
 
     def list_skin_concerns
-        puts "Welcome to your skincare collections."
-        puts "-"*40
+  
         puts <<~DOC 
-            1. Acne
+            1. Acne #acne page 
             2. Anti-aging
             3. Dryness
             4. Sensitive Skin
@@ -25,6 +32,7 @@ class SkincareCliGem::CLI
             input = gets.strip.downcase
             
             if input.to_i > 0 && input.to_i <= 4
+                # SkincareCliGem::Scraper.new()
                 puts @concerns[input.to_i-1]
             elsif input == "list"
                 list_skin_concerns
@@ -39,5 +47,6 @@ class SkincareCliGem::CLI
     def goodbye
         puts "Thanks for visiting! See you next time!"
     end 
+    
 
 end
