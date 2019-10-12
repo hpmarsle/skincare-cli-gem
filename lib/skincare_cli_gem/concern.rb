@@ -1,12 +1,12 @@
-require "pry"
-class SkincareCliGem::SkinConcern
-    attr_accessor :name, :summary, :products, :url
+# require "pry"
+class SkinConcern
+    attr_accessor :name, :summary#, :products, :url
     @@all = []
 
     def initialize(name)
         @name = name
         @@all << self 
-        @products = []
+    #     # @products = []
     end
 
     def self.all
