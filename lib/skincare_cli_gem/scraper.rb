@@ -9,6 +9,7 @@ class Scraper
         scrape_menu
         scrape_concern_pages
     end
+
     def scrape_menu
         # @concern = SkinConcern.new("Acne")
         @concerns = @doc.search("#filter-items > div:nth-child(2) > ul > li label").collect{|concern|concern.text.strip}
@@ -23,22 +24,12 @@ class Scraper
         # @web_pages = {}
         SkinConcern.all.each do |concern| #@web_pages[concern.name] = 
             web_page = Nokogiri::HTML(open("https://www.peachandlily.com/collections/#{concern.name.downcase.gsub(" ", "-")}"))
-            concern.summary = web_page.search("#collection-description").text.strip
+            if concern.name == "Dryness"
+                concern.summary = web_page.search("#collection-description > span").text.strip
+            else 
+                concern.summary = web_page.search("#collection-description").text.strip
+            end 
         end
         # @web_pages
     end
-    
-    # def scrape_products
-    #     # I would break the convention of only knowing about the Newsletter and let it create articles
-    #     @doc.search("td[align='left'] table.gowide")[2..-1].each do |article_table|
-    #     # instantiate the article
-    #     a = Article.new
-    #     a.author = article_table.search("div:first").text.strip
-    #     a.title = article_table.search("a:first").text.strip
-    #     a.url = article_table.search("a:first").attr("href").text.strip
-    
-    #     @newsletter.add_article(a)
-    #     # scrape the data
-    #     # add the article to the newsletter
-    # end
-end 
+end
