@@ -37,23 +37,6 @@ class CLI
             if input.to_i > 0 && input.to_i <= 4
                 puts @skin_concerns[input.to_i-1].name 
                 puts @skin_concerns[input.to_i-1].summary 
-                puts ""
-                puts "Would you like to see a list of recommended products for this skin concern? (y/n)"
-                see_products = nil
-                while see_products != "y" || see_products != "n"
-                    see_products = gets.strip.downcase
-                    case see_products
-                    when "y"
-                        @skin_concerns[input.to_i-1].list_products
-                        break
-                    when "n"
-                        puts "Okay, let us know if you change your mind."
-                        break
-                    else 
-                        puts "Please enter yes or no.(y/n)"
-                    end 
-                end 
-
             elsif input == "list"
                 list_skin_concerns
             elsif input == "exit"
