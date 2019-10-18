@@ -13,6 +13,9 @@ class SkinConcern
         @@all
     end
     
+    def list_products
+        
+    end 
     # def add_product(product)
     #   if !product.is_a?(Product)
     #     raise InvalidType, "must be an Article"

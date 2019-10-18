@@ -36,14 +36,4 @@ concern = scraped text
     #     @newsletter.add_article(a)
     #     # scrape the data
     #     # add the article to the newsletter
-    # end
 
-        # def add_product(product)
-    #   if !product.is_a?(Product)
-    #     raise InvalidType, "must be an Article"
-    #   else
-    #     @articles << article
-    #   end
-    # end 
-=======
->>>>>>> parent of 5ccd287... added notes
