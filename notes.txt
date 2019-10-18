@@ -2,13 +2,10 @@ What is a concern?
  -has a name
  -has a summary
  -has products
-
 skin concern
 #logo-area > div:nth-child(2) > nav > ul > li:nth-child(3) > a
 #logo-area > div:nth-child(2) > nav > ul > li:nth-child(3) > ul > li:nth-child(12) > a
 #collection-title
-
-#collection-description
 
 dry label selector
 #filter-items > div:nth-child(1) > ul > li:nth-child(1) > label
@@ -21,8 +18,12 @@ try below
 #filter-items > div:nth-child(1) > ul > li label
 #filter-items > div:nth-child(1) > ul > li > label
 
-#collection-description > span
+store url in var
+url = "https://www.peachandlily.com/collections/"
+concern = scraped text
+"#{url}#{concern}"
 
+<<<<<<< HEAD
     # def scrape_products
     #     # I would break the convention of only knowing about the Newsletter and let it create articles
     #     @doc.search("td[align='left'] table.gowide")[2..-1].each do |article_table|
@@ -44,3 +45,5 @@ try below
     #     @articles << article
     #   end
     # end 
+=======
+>>>>>>> parent of 5ccd287... added notes
