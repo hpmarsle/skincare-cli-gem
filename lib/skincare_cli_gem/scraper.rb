@@ -9,7 +9,6 @@ class Scraper
         scrape_menu
         scrape_concern_pages
     end
-
     def scrape_menu
         @concerns = @doc.search("#filter-items > div:nth-child(2) > ul > li label").collect{|concern|concern.text.strip}
         @menu = @concerns.values_at(0,1,3,11)
@@ -21,38 +20,22 @@ class Scraper
         
         SkinConcern.all.each do |concern| 
             web_page = Nokogiri::HTML(open("https://www.peachandlily.com/collections/#{concern.name.downcase.gsub(" ", "-")}"))
-            @product_names = web_page.search("#collection-list > div > div > a.product-title")
-            brand_names = web_page.search("#collection-list > div > div > a.product-vendor") #returns xml
-            @brands = brand_names.collect{|n|n.text} #returns array of brands in readable text
-            @prices = web_page.search("#collection-list > div > div > div.price").text.gsub(/\s+/," ").split(" ") #returns array of prices in readble format
-            
-            # How do i do mass assignment for multiple arrays to pass in each as a parameter for new object?
-            # @product_names.each do |name|
-            #     @brands.each do |brand_name|
-            #         @prices.each do |price|
-            #             concern.add_product(name.text,brand_name,price)
-            #         end
-            #     end
-            # end
-            if concern.name == "Dryness"
-                concern.summary = web_page.search("#collection-description > span").text.strip
-            else 
-                concern.summary = web_page.search("#collection-description").text.strip
-            end 
+            concern.summary = web_page.search("#collection-description").text.strip
         end
         SkinConcern.all
     end
-
+    
     # def scrape_products
-    #     @product_names = web_page.search("#collection-list > div > div > a.product-title")
-    #     @brands = web_page.search("#collection-list > div > div > a.product-vendor")
-    #     @prices = web_page.search("#collection-list > div > div > div.price")
-            
-    #         @product_names.each do |name|
-    #             product = concern.add_product(name.text)
-    #         end 
-    #         brands.each{|brand|brand.text}
-    #         concern.products.each{|product|product.brand = }
-    #         SkinConcern.all.each{|concern|concern.products }
-    # end 
-end
+    #     # I would break the convention of only knowing about the Newsletter and let it create articles
+    #     @doc.search("td[align='left'] table.gowide")[2..-1].each do |article_table|
+    #     # instantiate the article
+    #     a = Article.new
+    #     a.author = article_table.search("div:first").text.strip
+    #     a.title = article_table.search("a:first").text.strip
+    #     a.url = article_table.search("a:first").attr("href").text.strip
+    
+    #     @newsletter.add_article(a)
+    #     # scrape the data
+    #     # add the article to the newsletter
+    # end
+end 
