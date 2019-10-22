@@ -14,10 +14,10 @@ class SkinConcern
         @@all
     end
     # this would replace attr_accessor for summary
-    def summary 
-        @summary ||= Scraper.new.scrape_summary(url)
-        #@summary || @summary = Scraper.new.scrape_summary(url)
-    end
+    # def summary 
+    #     @summary ||= Scraper.new.scrape_summary(url)
+    #     #@summary || @summary = Scraper.new.scrape_summary(url)
+    # end
     
     # def add_product(product)
     #   if !product.is_a?(Product)
