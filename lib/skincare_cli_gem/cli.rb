@@ -34,7 +34,7 @@ class CLI
             puts "\nPlease type the corresponding number to your skin concern, type list for the options, or type exit to leave:"
             input = gets.strip.downcase
             
-            if input.to_i > 0 && input.to_i <= 4
+            if input.to_i > 0 && input.to_i <= 14
                 puts @skin_concerns[input.to_i-1].name 
                 puts @skin_concerns[input.to_i-1].summary 
             elsif input == "list"
